@@ -1,0 +1,37 @@
+2020-08-07 01:20:19.632  INFO 17056 --- [main] com.fenzsen.blog.BlogApplication         : Starting BlogApplication on LAPTOP-IQMRL0L5 with PID 17056 (D:\JavaProject\FenzsenBlog\target\classes started by 19419 in D:\JavaProject\FenzsenBlog)
+2020-08-07 01:20:19.634  INFO 17056 --- [main] com.fenzsen.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2020-08-07 01:20:20.042  INFO 17056 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-07 01:20:20.061  INFO 17056 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 JPA repository interfaces.
+2020-08-07 01:20:20.385  INFO 17056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 2020 (http)
+2020-08-07 01:20:20.396  INFO 17056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-07 01:20:20.397  INFO 17056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-08-07 01:20:20.517  INFO 17056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-07 01:20:20.517  INFO 17056 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 848 ms
+2020-08-07 01:20:20.585  INFO 17056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-07 01:20:20.662  INFO 17056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-07 01:20:21.250  INFO 17056 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 01:20:21.278  WARN 17056 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-07 01:20:21.350  INFO 17056 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-07 01:20:21.479  INFO 17056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 2020 (http) with context path ''
+2020-08-07 01:20:21.480  INFO 17056 --- [main] com.fenzsen.blog.BlogApplication         : Started BlogApplication in 2.129 seconds (JVM running for 3.185)
+2020-08-07 01:20:40.342  INFO 17056 --- [http-nio-2020-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-07 01:20:40.343  INFO 17056 --- [http-nio-2020-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-07 01:20:40.348  INFO 17056 --- [http-nio-2020-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-08-07 01:20:40.356  WARN 17056 --- [http-nio-2020-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2020-08-07 01:20:58.810  INFO 17056 --- [http-nio-2020-exec-3] c.f.blog.controller.TestController       : Hello World
+2020-08-07 01:26:21.381  INFO 25484 --- [main] com.fenzsen.blog.BlogApplication         : Starting BlogApplication on LAPTOP-IQMRL0L5 with PID 25484 (D:\JavaProject\FenzsenBlog\target\classes started by 19419 in D:\JavaProject\FenzsenBlog)
+2020-08-07 01:26:21.383  INFO 25484 --- [main] com.fenzsen.blog.BlogApplication         : No active profile set, falling back to default profiles: default
+2020-08-07 01:26:21.760  INFO 25484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-07 01:26:21.776  INFO 25484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 JPA repository interfaces.
+2020-08-07 01:26:22.074  INFO 25484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 2020 (http)
+2020-08-07 01:26:22.079  INFO 25484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-07 01:26:22.080  INFO 25484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-08-07 01:26:22.198  INFO 25484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-07 01:26:22.199  INFO 25484 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 781 ms
+2020-08-07 01:26:22.268  INFO 25484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-07 01:26:22.341  INFO 25484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-07 01:26:22.931  INFO 25484 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 01:26:22.959  WARN 25484 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-07 01:26:23.031  INFO 25484 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-07 01:26:23.164  INFO 25484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 2020 (http) with context path ''
+2020-08-07 01:26:23.166  INFO 25484 --- [main] com.fenzsen.blog.BlogApplication         : Started BlogApplication in 2.046 seconds (JVM running for 3.073)
