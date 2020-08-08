@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Date: 2020/8/7
@@ -12,7 +12,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "tb_labels")
-public class Labels {
+public class Label {
 
     @Id
     @Column(name = "id")
@@ -28,11 +28,11 @@ public class Labels {
 
     // 创建时间
     @Column(name = "create_time")
-    private Timestamp createTime;
+    private Date createTime;
 
     // 更新时间
     @Column(name = "update_time")
-    private Timestamp updateTime;
+    private Date updateTime;
 
     public String getId() {
         return id;
@@ -42,20 +42,35 @@ public class Labels {
         this.id = id;
     }
 
-    public Timestamp getCreateTime() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-
 }

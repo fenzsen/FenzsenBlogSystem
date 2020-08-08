@@ -2,8 +2,12 @@ package com.fenzsen.blog.controller.user;
 
 import com.fenzsen.blog.pojo.FenUser;
 import com.fenzsen.blog.response.ResponseResult;
+import com.fenzsen.blog.services.IUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Date: 2020/8/8
@@ -15,15 +19,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserApi {
 
+    @Autowired
+    private IUserService userService;
+
     /**
     * Description: 初始化管理员账号
     */
     @PostMapping("/admin_account")
-    public ResponseResult initManagerAccount(@RequestBody FenUser user){
+    public ResponseResult initManagerAccount(@RequestBody FenUser user, HttpServletRequest request){
         log.info("userName："+ user.getUserName());
         log.info("password："+ user.getPassword());
         log.info("email："+ user.getEmail());
-        return ResponseResult.SUCCESS();
+        return userService.initManagerAccount(user,request);
     }
 
     /**

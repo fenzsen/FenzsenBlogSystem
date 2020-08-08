@@ -3,7 +3,7 @@ package com.fenzsen.blog.response;
 /* 状态封装类 */
 public enum ResponseState {
     // enum 枚举
-    SUCCESS(true,20000,"获取数据成功"),
+    SUCCESS(true,20000,"数据操作成功"),
     FAILED(false,40000,"服务器繁忙");
 
     ResponseState(boolean success, int code, String message){
