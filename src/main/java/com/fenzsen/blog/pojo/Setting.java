@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Date: 2020/8/7
@@ -12,27 +12,27 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "tb_settings")
-public class Settings {
+public class Setting {
 
     @Id
     @Column(name = "id")
     private String id;
 
-    // 键
-    @Column(name = "key")
+    // 键    在 SQL 语句中为关键字，所以用反引号括起来
+    @Column(name = "`key`")
     private String key;
 
-    // 值
-    @Column(name = "value")
+    // 值    在 SQL 语句中为关键字，所以用反引号括起来
+    @Column(name = "`value`")
     private int value;
 
     // 创建时间
     @Column(name = "create_time")
-    private Timestamp createTime;
+    private Date createTime;
 
     // 更新时间
     @Column(name = "update_time")
-    private Timestamp updateTime;
+    private Date updateTime;
 
     public String getId() {
         return id;
@@ -42,19 +42,19 @@ public class Settings {
         this.id = id;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 

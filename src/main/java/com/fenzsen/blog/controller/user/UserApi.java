@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Date: 2020/8/8
@@ -21,6 +22,7 @@ public class UserApi {
 
     @Autowired
     private IUserService userService;
+
 
     /**
     * Description: 初始化管理员账号
@@ -37,8 +39,8 @@ public class UserApi {
     * Description: 注册
     */
     @PostMapping
-    public ResponseResult register(){
-        return null;
+    public ResponseResult register(@RequestBody FenUser user){
+        return userService.register(user);
     }
 
     /**
@@ -53,21 +55,23 @@ public class UserApi {
         return ResponseResult.SUCCESS();
     }
 
+
+
     /**
      * Description: 获取图灵验证码
      */
     @GetMapping("/captcha")
-    public ResponseResult getCaptcha(){
-        return null;
+    public void getCaptcha(HttpServletResponse response, @RequestParam("captcha_key") String captchaKey) throws Exception {
+        userService.createCaptcha(response,captchaKey);
     }
 
     /**
      * Description: 发送邮件
      */
     @GetMapping("/verify_code")
-    public ResponseResult sendVerifyCode(@RequestParam("email")String emailAddress){
+    public ResponseResult sendVerifyCode(HttpServletRequest request,@RequestParam("email")String emailAddress){
         log.info("emailAddress："+emailAddress);
-        return ResponseResult.SUCCESS();
+        return userService.sendEali(request,emailAddress);
     }
 
     /**

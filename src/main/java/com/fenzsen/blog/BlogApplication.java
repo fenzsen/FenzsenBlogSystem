@@ -1,9 +1,11 @@
 package com.fenzsen.blog;
 
 import com.fenzsen.blog.utils.IdWorker;
+import com.fenzsen.blog.utils.RedisUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -21,5 +23,16 @@ public class BlogApplication {
     public IdWorker createIdWorker(){
         return new IdWorker(0,0);
     }
+
+    @Bean
+    public BCryptPasswordEncoder createPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public RedisUtil createRedisUtils(){
+        return new RedisUtil();
+    }
+
 
 }

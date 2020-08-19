@@ -7,6 +7,9 @@ import com.fenzsen.blog.pojo.TestHouse;
 import com.fenzsen.blog.response.ResponseResult;
 import com.fenzsen.blog.utils.Constants;
 import com.fenzsen.blog.utils.IdWorker;
+import com.fenzsen.blog.utils.RedisUtil;
+import com.wf.captcha.SpecCaptcha;
+import com.wf.captcha.base.Captcha;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +23,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
@@ -36,6 +41,9 @@ public class TestController {
     @Autowired
     private LabelDao labelDao;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     // 定义一个全局的 Log
     // public static final Logger log= LoggerFactory.getLogger(TestController.class);
 
@@ -43,7 +51,8 @@ public class TestController {
     // @RequestMapping 指定请求路径、方法、参数
     @RequestMapping( value = "/testString",method = RequestMethod.GET)
     public String testString(){
-        log.info("Hello World");
+        String captchaContent = (String) redisUtil.get(Constants.User.KEY_CAPTCHA_CONTENT + "123456");
+        log.info("captchaContent ==>"+captchaContent);
         return "Hello World";
     }
 
@@ -146,4 +155,50 @@ public class TestController {
         return ResponseResult.SUCCESS("模糊查询成功").setData(all);
     }
 
+
+    @RequestMapping("/captcha")
+    public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 设置请求头为输出图片类型
+        response.setContentType("image/gif");
+        response.setHeader("Pragma", "No-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+
+        // 三个参数分别为宽、高、位数
+        SpecCaptcha specCaptcha = new SpecCaptcha(130, 48, 5);
+        // 设置字体
+        // specCaptcha.setFont(new Font("Verdana", Font.PLAIN, 32));  // 有默认字体，可以不用设置
+        specCaptcha.setFont(Captcha.FONT_1);  // 有默认字体，可以不用设置
+        // 设置类型，纯数字、纯字母、字母数字混合
+        specCaptcha.setCharType(Captcha.TYPE_NUM_AND_UPPER);
+
+        String constent = specCaptcha.text().toLowerCase();
+        log.info("constent==>" + constent);
+
+        // 验证码存入session
+//        request.getSession().setAttribute("captcha", specCaptcha.text().toLowerCase());
+        redisUtil.set(Constants.User.KEY_CAPTCHA_CONTENT+"123456",constent,60*10);
+
+        // 输出图片流
+        specCaptcha.out(response.getOutputStream());
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

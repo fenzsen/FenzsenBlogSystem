@@ -14,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  * Date: 2020/8/8
  */
 @Configuration
-public class Swagger2Configurtation {
+public class Swagger2ConfigurtationConfig {
 
     public static final String VERSION = "1.0.0";
 
